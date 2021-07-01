@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        let date = prompt("Enter Date:")
+        console.log(date, "date");
+        let arr = date.split("-");
+        console.log(arr);
+        let [a1, a2, a3] = arr;
+        a1 = parseInt(a1);
+        a2 = parseInt(a2);
+        a3 = parseInt(a3);
+        let y,m,d
+        console.log(a1, a2, a3)
+        if(a1>31&&a3<=31&&a2<=12){
+            y = a1;
+            d=a3;
+            m=a2
+        }else if(a1<=12&&a2<=31){
+           y=a3;
+           d=a2;
+           m=a1;
+        }
+        else{
+            console.log("Invalid Date")
+        }
+        console.log("Year :",y,"Month :", m,"date:", d);
+        let date1 = new Date(Date.UTC(y,m-1,d,0,0,0,0,0));
+        date1.setFullYear(y,m-1,d),
+        date1.setHours(0,0,0,0)
+        console.log(date1.toUTCString())
+    </script>
+  </body>
+</html>
